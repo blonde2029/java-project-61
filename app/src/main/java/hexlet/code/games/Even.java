@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.games;
 import java.util.Scanner;
 import java.util.Random;
 public class Even {
@@ -29,6 +29,8 @@ public class Even {
                 System.out.println(answer + " is wrong answer");
                 break;
             }
+
+            //если последний ответ был правильным
             if (i == 2) {
                 System.out.println("Congratulations, " + name + "!");
             }
