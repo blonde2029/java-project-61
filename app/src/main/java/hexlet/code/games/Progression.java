@@ -20,6 +20,7 @@ public class Progression {
             int progressionNumber = random.nextInt(1,10);
             int hiddenIndex = random.nextInt(arrayLength);
             String correctAnswer = "";
+
             //заполним строку чисел
             for (var n = 0; n < arrayLength; n++) {
                 if (n == hiddenIndex) {
