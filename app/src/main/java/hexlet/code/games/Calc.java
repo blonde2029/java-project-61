@@ -8,6 +8,7 @@ public class Calc {
         //сама игра
         final int attempts = 3;
         final int maxRandomValue = 100;
+        final int variousExpressions = 3;
         System.out.println("What is the result of the expression?");
         for (var i = 0; i < attempts; i++) {
             //подберем случайные числа
@@ -17,7 +18,7 @@ public class Calc {
             //подберем случайное выражение
             String expressionString;
             String correctAnswer;
-            int expression = random.nextInt(3);
+            int expression = random.nextInt(variousExpressions);
             if (expression == 0) {
                 expressionString = "-";
                 correctAnswer = "" + (a - b);
