@@ -15,12 +15,7 @@ public class Even {
             String question = "Question: " + randomNumber;
             String answer = Engine.getAnswer(question);
             //вычислим правильный ответ
-            String correctAnswer;
-            if (randomNumber % 2 == 0) {
-                correctAnswer = "yes";
-            } else {
-                correctAnswer = "no";
-            }
+            String correctAnswer = (randomNumber % 2 == 0 ? "yes" : "no");
             //проверим ответ пользователя
             if (!Engine.checkAnswer(answer, correctAnswer, name)) return;
         }

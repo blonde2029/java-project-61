@@ -7,9 +7,9 @@ public class Progression {
         String name = Engine.greeting();
         //сама игра
         System.out.println("What number is missing in the progression?");
+        Random random = new Random();
         for (var i = 0; i < 3; i++) {
             //подготовим данные для задачи
-            Random random = new Random();
             int arrayLength = random.nextInt(5, 10);
             String array = "";
             int startNumber = random.nextInt(10);
@@ -28,7 +28,7 @@ public class Progression {
                 }
             }
             //выводим вопрос и считываем ответ
-            String question = "Question: " + array;
+            String question = "Question:" + array;
             String answer = Engine.getAnswer(question);
             //проверим ответ пользователя
             if (!Engine.checkAnswer(answer, correctAnswer, name)) return;

@@ -14,26 +14,21 @@ public class Calc {
             int b = random.nextInt(100);
             //подберем случайное выражение
             String expressionString;
+            String correctAnswer;
             int expression = random.nextInt(3);
             if (expression == 0) {
                 expressionString = "-";
+                correctAnswer = "" + (a - b);
             } else if (expression == 1) {
                 expressionString = "+";
+                correctAnswer = "" + (a + b);
             } else {
                 expressionString = "*";
+                correctAnswer = "" + (a * b);
             }
             //выводим вопрос и считываем ответ
             String question = "Question: " + a + " " + expressionString + " " + b;
             String answer = Engine.getAnswer(question);
-            //вычислим правильный ответ
-            String correctAnswer;
-            if (expression == 0) {
-                correctAnswer = "" + (a - b);
-            } else if (expression == 1) {
-                correctAnswer = "" + (a + b);
-            } else {
-                correctAnswer = "" + (a * b);
-            }
             //проверим ответ пользователя
             if (!Engine.checkAnswer(answer, correctAnswer, name)) return;
         }
