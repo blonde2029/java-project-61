@@ -1,30 +1,28 @@
 package hexlet.code.games;
-import hexlet.code.Engine;
-import java.util.Random;
-public class Even {
-    public static void Game() {
 
+import hexlet.code.Engine;
+
+import java.util.Random;
+
+public class GCD {
+    public static void Game() {
         //знакомство с пользователем
         String name = Engine.greeting();
 
         //сама игра
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        System.out.println("Find the greatest common divisor of given numbers.");
         for (var i = 0; i < 3; i++) {
-            //подбираем случайное число
+            //подберем случайные числа
             Random random = new Random();
-            int randomNumber = random.nextInt(1000);
+            int a = random.nextInt(100);
+            int b = random.nextInt(100);
 
             //выводим вопрос и считываем ответ
-            String question = "Question: " + randomNumber;
+            String question = "Question: " + a + " "  + b;
             String answer = Engine.getAnswer(question);
 
             //вычислим правильный ответ
-            String correctAnswer;
-            if (randomNumber % 2 == 0) {
-                correctAnswer = "yes";
-            } else {
-                correctAnswer = "no";
-            }
+            String correctAnswer = "" + gcd(a, b);
 
             //проверим ответ пользователя
             if (!Engine.checkAnswer(answer, correctAnswer, name)) break;
@@ -33,6 +31,11 @@ public class Even {
             if (i == 2) {
                 System.out.println("Congratulations, " + name + "!");
             }
+
         }
+    }
+    public static int gcd(int a, int b) {
+        if (b==0) return a;
+        return gcd(b, a % b);
     }
 }

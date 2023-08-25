@@ -1,24 +1,21 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
-
-import java.util.Scanner;
 import java.util.Random;
 
 
 public class Calc {
     public static void Game() {
-       Scanner scanner = new Scanner(System.in);
 
        //знакомство с пользователем
        String name = Engine.greeting();
 
         //сама игра
+        System.out.println("What is the result of the expression?");
         for (var i = 0; i < 3; i++) {
-
             //подберем случайные числа
             Random random = new Random();
-            int a = random.nextInt(1000);
-            int b = random.nextInt(1000);
+            int a = random.nextInt(100);
+            int b = random.nextInt(100);
 
             //подберем случайное выражение
             String expressionString;
@@ -32,10 +29,9 @@ public class Calc {
             }
 
             //выводим вопрос и считываем ответ
-            System.out.println("What is the result of the expression?");
-            System.out.println("Question: " + a + " " + expressionString + " " + b);
-            System.out.print("Your answer:");
-            String answer = scanner.nextLine().trim();
+            String question = "Question: " + a + " " + expressionString + " " + b;
+            String answer = Engine.getAnswer(question);
+
 
             //вычислим правильный ответ
             String correctAnswer;
