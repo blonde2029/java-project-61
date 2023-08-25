@@ -2,11 +2,10 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.Random;
 public class Progression {
-    public static void game() {
+    public static void game(int attempts) {
         //знакомство с пользователем
         String name = Engine.greeting();
         //сама игра
-        final int attempts = 3;
         final int minRandomValue = 5;
         final int maxRandomValue = 10;
         System.out.println("What number is missing in the progression?");

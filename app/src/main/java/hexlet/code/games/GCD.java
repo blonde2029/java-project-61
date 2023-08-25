@@ -4,11 +4,10 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 public class GCD {
-    public static void game() {
+    public static void game(int attempts) {
         //знакомство с пользователем
         String name = Engine.greeting();
         //сама игра
-        final int attempts = 3;
         final int maxRandomValue = 100;
         System.out.println("Find the greatest common divisor of given numbers.");
         for (var i = 0; i < attempts; i++) {

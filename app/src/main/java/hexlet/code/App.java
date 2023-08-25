@@ -8,6 +8,7 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
+        final int attempts = 3;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
         System.out.println("Please enter the game number and press Enter");
@@ -21,11 +22,11 @@ public class App {
         String answer = scanner.nextLine().trim();
         switch (answer) {
             case ("1") -> Cli.greeting();
-            case ("2") -> Even.game();
-            case ("3") -> Calc.game();
-            case ("4") -> GCD.game();
-            case ("5") -> Progression.game();
-            case ("6") -> Prime.game();
+            case ("2") -> Even.game(attempts);
+            case ("3") -> Calc.game(attempts);
+            case ("4") -> GCD.game(attempts);
+            case ("5") -> Progression.game(attempts);
+            case ("6") -> Prime.game(attempts);
             default -> System.out.println("Goodbye!");
         }
 

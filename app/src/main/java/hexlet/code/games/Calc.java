@@ -2,13 +2,11 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.Random;
 public class Calc {
-    public static void game() {
+    public static void game(int attempts) {
         //знакомство с пользователем
        String name = Engine.greeting();
         //сама игра
-        final int attempts = 3;
         final int maxRandomValue = 100;
-        final int variousExpressions = 3;
         System.out.println("What is the result of the expression?");
         for (var i = 0; i < attempts; i++) {
             //подберем случайные числа
@@ -16,19 +14,9 @@ public class Calc {
             int a = random.nextInt(maxRandomValue);
             int b = random.nextInt(maxRandomValue);
             //подберем случайное выражение
-            String expressionString;
-            String correctAnswer;
-            int expression = random.nextInt(variousExpressions);
-            if (expression == 0) {
-                expressionString = "-";
-                correctAnswer = "" + (a - b);
-            } else if (expression == 1) {
-                expressionString = "+";
-                correctAnswer = "" + (a + b);
-            } else {
-                expressionString = "*";
-                correctAnswer = "" + (a * b);
-            }
+            String expressionString = getExpression();
+            //вычислим правильный ответ
+            String correctAnswer = getCorrectAnswer(a, b, expressionString);
             //выводим вопрос и считываем ответ
             String question = "Question: " + a + " " + expressionString + " " + b;
             String answer = Engine.getAnswer(question);
@@ -39,5 +27,29 @@ public class Calc {
         }
         System.out.println("Congratulations, " + name + "!");
     }
-
+    public static String getExpression() {
+        final int variousExpressions = 3;
+        Random random = new Random();
+        String expressionString;
+        int expression = random.nextInt(variousExpressions);
+        if (expression == 0) {
+            expressionString = "-";
+        } else if (expression == 1) {
+            expressionString = "+";
+        } else {
+            expressionString = "*";
+        }
+        return expressionString;
+    }
+    public static String getCorrectAnswer(int a, int b, String expressionString) {
+        String correctAnswer;
+        if (expressionString.equals("-")) {
+            correctAnswer = "" + (a - b);
+        } else if (expressionString.equals("+")) {
+            correctAnswer = "" + (a + b);
+        } else {
+            correctAnswer = "" + (a * b);
+        }
+        return correctAnswer;
+    }
 }

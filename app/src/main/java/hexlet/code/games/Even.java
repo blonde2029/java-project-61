@@ -2,11 +2,10 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.Random;
 public class Even {
-    public static void game() {
+    public static void game(int attempts) {
         //знакомство с пользователем
         String name = Engine.greeting();
         //сама игра
-        final int attempts = 3;
         final int maxRandomValue = 1000;
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         for (var i = 0; i < attempts; i++) {
