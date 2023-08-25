@@ -22,11 +22,8 @@ public class Even {
                 correctAnswer = "no";
             }
             //проверим ответ пользователя
-            if (!Engine.checkAnswer(answer, correctAnswer, name)) break;
-            //если последний ответ был правильным
-            if (i == 2) {
-                System.out.println("Congratulations, " + name + "!");
-            }
+            if (!Engine.checkAnswer(answer, correctAnswer, name)) return;
         }
+        System.out.println("Congratulations, " + name + "!");
     }
 }

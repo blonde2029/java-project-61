@@ -17,13 +17,9 @@ public class Prime {
             //вычислим правильный ответ
             String correctAnswer = isSimple(number);
             //проверим ответ пользователя
-            if (!Engine.checkAnswer(answer, correctAnswer, name)) break;
-            //если последний ответ был правильным
-            if (i == 2) {
-                System.out.println("Congratulations, " + name + "!");
-            }
-
+            if (!Engine.checkAnswer(answer, correctAnswer, name)) return;
         }
+        System.out.println("Congratulations, " + name + "!");
     }
     public static String isSimple(int number) {
         if (number < 2) return "no";

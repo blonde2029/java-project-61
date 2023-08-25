@@ -20,13 +20,9 @@ public class GCD {
             //вычислим правильный ответ
             String correctAnswer = "" + gcd(a, b);
             //проверим ответ пользователя
-            if (!Engine.checkAnswer(answer, correctAnswer, name)) break;
-            //если последний ответ был правильным
-            if (i == 2) {
-                System.out.println("Congratulations, " + name + "!");
-            }
-
+            if (!Engine.checkAnswer(answer, correctAnswer, name)) return;
         }
+        System.out.println("Congratulations, " + name + "!");
     }
     public static int gcd(int a, int b) {
         if (b==0) return a;
