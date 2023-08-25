@@ -6,14 +6,17 @@ public class Progression {
         //знакомство с пользователем
         String name = Engine.greeting();
         //сама игра
+        final int attempts = 3;
+        final int minRandomValue = 5;
+        final int maxRandomValue = 10;
         System.out.println("What number is missing in the progression?");
         Random random = new Random();
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < attempts; i++) {
             //подготовим данные для задачи
-            int arrayLength = random.nextInt(5, 10);
+            int arrayLength = random.nextInt(minRandomValue, maxRandomValue);
             String array = "";
-            int startNumber = random.nextInt(10);
-            int progressionNumber = random.nextInt(1, 10);
+            int startNumber = random.nextInt(maxRandomValue);
+            int progressionNumber = random.nextInt(1, maxRandomValue);
             int hiddenIndex = random.nextInt(arrayLength);
             String correctAnswer = "";
             //заполним строку чисел
@@ -31,7 +34,9 @@ public class Progression {
             String question = "Question:" + array;
             String answer = Engine.getAnswer(question);
             //проверим ответ пользователя
-            if (!Engine.checkAnswer(answer, correctAnswer, name)) return;
+            if (!Engine.checkAnswer(answer, correctAnswer, name)) {
+                return;
+            }
         }
         System.out.println("Congratulations, " + name + "!");
     }
