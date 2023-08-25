@@ -3,7 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import java.util.Random;
-
 public class GCD {
     public static void Game() {
         //знакомство с пользователем

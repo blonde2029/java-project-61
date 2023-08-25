@@ -3,7 +3,6 @@ import hexlet.code.Engine;
 import java.util.Random;
 public class Even {
     public static void Game() {
-
         //знакомство с пользователем
         String name = Engine.greeting();
 

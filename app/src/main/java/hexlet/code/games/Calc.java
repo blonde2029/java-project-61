@@ -1,12 +1,9 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.Random;
-
-
 public class Calc {
     public static void Game() {
-
-       //знакомство с пользователем
+        //знакомство с пользователем
        String name = Engine.greeting();
 
         //сама игра

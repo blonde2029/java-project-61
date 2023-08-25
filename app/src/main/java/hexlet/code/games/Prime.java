@@ -1,9 +1,6 @@
 package hexlet.code.games;
-
 import hexlet.code.Engine;
-
 import java.util.Random;
-
 public class Prime {
     public static void Game() {
         //знакомство с пользователем
