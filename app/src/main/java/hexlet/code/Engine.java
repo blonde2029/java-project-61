@@ -11,5 +11,14 @@ public class Engine {
         return name;
     }
 
+    public static boolean checkAnswer(String answer, String correctAnswer, String name) {
+        if (answer.equals(correctAnswer)) {
+            System.out.println("Correct!");
+            return true;
+        }
+        System.out.println(answer + " is wrong answer ;(. Correct answer was " + correctAnswer + "\n Let's try again, " + name + "!");
+        return false;
+    }
+
 
 }
