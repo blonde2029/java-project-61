@@ -2,7 +2,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.Random;
 public class Prime {
-    public static void Game() {
+    public static void game() {
         //знакомство с пользователем
         String name = Engine.greeting();
         //сама игра
@@ -10,7 +10,7 @@ public class Prime {
         for (var i = 0; i < 3; i++) {
             //подготовим данные для задачи
             Random random = new Random();
-            int number = random.nextInt(1,3571);
+            int number = random.nextInt(1, 3571);
             //выводим вопрос и считываем ответ
             String question = "Question: " + number;
             String answer = Engine.getAnswer(question);

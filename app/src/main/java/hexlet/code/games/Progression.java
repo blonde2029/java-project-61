@@ -2,7 +2,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.Random;
 public class Progression {
-    public static void Game() {
+    public static void game() {
         //знакомство с пользователем
         String name = Engine.greeting();
         //сама игра
@@ -10,10 +10,10 @@ public class Progression {
         for (var i = 0; i < 3; i++) {
             //подготовим данные для задачи
             Random random = new Random();
-            int arrayLength = random.nextInt(5,10);
+            int arrayLength = random.nextInt(5, 10);
             String array = "";
             int startNumber = random.nextInt(10);
-            int progressionNumber = random.nextInt(1,10);
+            int progressionNumber = random.nextInt(1, 10);
             int hiddenIndex = random.nextInt(arrayLength);
             String correctAnswer = "";
             //заполним строку чисел

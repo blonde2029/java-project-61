@@ -1,5 +1,9 @@
 package hexlet.code;
-import hexlet.code.games.*;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 public class App {
@@ -16,12 +20,12 @@ public class App {
         String answer = scanner.nextLine().trim();
         switch (answer) {
             case ("1") -> Cli.greeting();
-            case ("2") -> Even.Game();
-            case ("3") -> Calc.Game();
-            case ("4") -> GCD.Game();
-            case ("5") -> Progression.Game();
-            case ("6") -> Prime.Game();
-            case ("0") -> System.out.println("Goodbye!");
+            case ("2") -> Even.game();
+            case ("3") -> Calc.game();
+            case ("4") -> GCD.game();
+            case ("5") -> Progression.game();
+            case ("6") -> Prime.game();
+            default -> System.out.println("Goodbye!");
         }
 
     }

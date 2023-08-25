@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 public class GCD {
-    public static void Game() {
+    public static void game() {
         //знакомство с пользователем
         String name = Engine.greeting();
         //сама игра
