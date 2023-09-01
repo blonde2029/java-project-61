@@ -1,8 +1,10 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.Random;
+import java.util.Scanner;
+
 public class Prime {
-    public static void game(int attempts) {
+    public static void startGame(int attempts) {
         //знакомство с пользователем
         String name = Engine.greeting();
         //сама игра
@@ -14,7 +16,10 @@ public class Prime {
             int number = random.nextInt(1, maxRandomValue);
             //выводим вопрос и считываем ответ
             String question = "Question: " + number;
-            String answer = Engine.getAnswer(question);
+            Scanner scanner = new Scanner(System.in);
+            System.out.println(question);
+            System.out.print("Your answer:");
+            String answer = scanner.nextLine().trim();
             //вычислим правильный ответ
             String correctAnswer = isSimple(number);
             //проверим ответ пользователя

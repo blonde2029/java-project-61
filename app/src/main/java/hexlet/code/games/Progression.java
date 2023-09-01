@@ -1,8 +1,10 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.Random;
+import java.util.Scanner;
+
 public class Progression {
-    public static void game(int attempts) {
+    public static void startGame(int attempts) {
         //знакомство с пользователем
         String name = Engine.greeting();
         //сама игра
@@ -21,7 +23,10 @@ public class Progression {
             String correctAnswer = getCorrectAnswer(arrayLength, startNumber, progressionNumber, hiddenIndex);
             //выводим вопрос и считываем ответ
             String question = "Question:" + array;
-            String answer = Engine.getAnswer(question);
+            Scanner scanner = new Scanner(System.in);
+            System.out.println(question);
+            System.out.print("Your answer:");
+            String answer = scanner.nextLine().trim();
             //проверим ответ пользователя
             if (!Engine.checkAnswer(answer, correctAnswer, name)) {
                 return;

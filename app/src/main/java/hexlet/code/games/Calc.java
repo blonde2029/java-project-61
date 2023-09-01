@@ -1,8 +1,10 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.Random;
+import java.util.Scanner;
+
 public class Calc {
-    public static void game(int attempts) {
+    public static void startGame(int attempts) {
         //знакомство с пользователем
        String name = Engine.greeting();
         //сама игра
@@ -19,7 +21,10 @@ public class Calc {
             String correctAnswer = getCorrectAnswer(a, b, expressionString);
             //выводим вопрос и считываем ответ
             String question = "Question: " + a + " " + expressionString + " " + b;
-            String answer = Engine.getAnswer(question);
+            Scanner scanner = new Scanner(System.in);
+            System.out.println(question);
+            System.out.print("Your answer:");
+            String answer = scanner.nextLine().trim();
             //проверим ответ пользователя
             if (!Engine.checkAnswer(answer, correctAnswer, name)) {
                 return;
@@ -28,18 +33,11 @@ public class Calc {
         System.out.println("Congratulations, " + name + "!");
     }
     public static String getExpression() {
-        final int variousExpressions = 3;
+        final String[] variousExpressions = new String[] {"-", "+", "*"};
+        final int maxRandom = 3;
         Random random = new Random();
-        String expressionString;
-        int expression = random.nextInt(variousExpressions);
-        if (expression == 0) {
-            expressionString = "-";
-        } else if (expression == 1) {
-            expressionString = "+";
-        } else {
-            expressionString = "*";
-        }
-        return expressionString;
+        int expression = random.nextInt(maxRandom);
+        return variousExpressions[expression];
     }
     public static String getCorrectAnswer(int a, int b, String expressionString) {
         String correctAnswer;

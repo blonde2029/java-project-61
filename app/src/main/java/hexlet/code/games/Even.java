@@ -1,8 +1,10 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.Random;
+import java.util.Scanner;
+
 public class Even {
-    public static void game(int attempts) {
+    public static void startGame(int attempts) {
         //знакомство с пользователем
         String name = Engine.greeting();
         //сама игра
@@ -14,14 +16,20 @@ public class Even {
             int randomNumber = random.nextInt(maxRandomValue);
             //выводим вопрос и считываем ответ
             String question = "Question: " + randomNumber;
-            String answer = Engine.getAnswer(question);
+            Scanner scanner = new Scanner(System.in);
+            System.out.println(question);
+            System.out.print("Your answer:");
+            String answer = scanner.nextLine().trim();
             //вычислим правильный ответ
-            String correctAnswer = (randomNumber % 2 == 0 ? "yes" : "no");
+            String correctAnswer = (isEven(randomNumber) ? "yes" : "no");
             //проверим ответ пользователя
             if (!Engine.checkAnswer(answer, correctAnswer, name)) {
                 return;
             }
         }
         System.out.println("Congratulations, " + name + "!");
+    }
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }

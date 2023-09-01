@@ -3,8 +3,10 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import java.util.Random;
+import java.util.Scanner;
+
 public class GCD {
-    public static void game(int attempts) {
+    public static void startGame(int attempts) {
         //знакомство с пользователем
         String name = Engine.greeting();
         //сама игра
@@ -17,7 +19,10 @@ public class GCD {
             int b = random.nextInt(maxRandomValue);
             //выводим вопрос и считываем ответ
             String question = "Question: " + a + " "  + b;
-            String answer = Engine.getAnswer(question);
+            Scanner scanner = new Scanner(System.in);
+            System.out.println(question);
+            System.out.print("Your answer:");
+            String answer = scanner.nextLine().trim();
             //вычислим правильный ответ
             String correctAnswer = "" + gcd(a, b);
             //проверим ответ пользователя
