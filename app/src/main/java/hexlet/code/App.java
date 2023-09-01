@@ -19,22 +19,15 @@ public class App {
         System.out.println("5 - Progression");
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
-        int answer = Integer.parseInt(scanner.nextLine().trim());
+        String answer = scanner.nextLine().trim();
         switch (answer) {
-            case 1:
-                Cli.greeting();
-            case 2:
-                Even.startGame(attempts);
-            case 3:
-                Calc.startGame(attempts);
-            case 4:
-                GCD.startGame(attempts);
-            case 5:
-                Progression.startGame(attempts);
-            case 6:
-                Prime.startGame(attempts);
-            default:
-                System.out.println("Goodbye!");
+            case "1" -> Cli.greeting();
+            case "2" -> Even.startGame(attempts);
+            case "3" -> Calc.startGame(attempts);
+            case "4" -> GCD.startGame(attempts);
+            case "5" -> Progression.startGame(attempts);
+            case "6" -> Prime.startGame(attempts);
+            default -> System.out.println("Goodbye!");
         }
 
     }

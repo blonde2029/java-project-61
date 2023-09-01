@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Calc {
     public static void startGame(int attempts) {
         //знакомство с пользователем
-       String name = Engine.greeting();
+        String name = Engine.greeting();
         //сама игра
         final int maxRandomValue = 100;
         System.out.println("What is the result of the expression?");
