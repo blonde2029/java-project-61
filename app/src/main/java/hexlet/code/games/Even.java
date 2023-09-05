@@ -8,7 +8,7 @@ public class Even {
         final int maxRandomValue = 1000;
         //Random random = new Random();
         String gameRule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        String[][] questionsAndAnswers = new String[3][2];
+        String[][] questionsAndAnswers = new String[attempts][2];
         for (var i = 0; i < attempts; i++) {
             //подготовим вопрос
             int randomNumber = Utils.getRandomInt(maxRandomValue);

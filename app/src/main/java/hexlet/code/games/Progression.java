@@ -8,7 +8,7 @@ public class Progression {
         final int minRandomValue = 5;
         final int maxRandomValue = 10;
         String gameRule = "What number is missing in the progression?";
-        String[][] questionsAndAnswers = new String[3][2];
+        String[][] questionsAndAnswers = new String[attempts][2];
         for (var i = 0; i < attempts; i++) {
             //подготовим вопрос
             int startNumber = Utils.getRandomInt(maxRandomValue);

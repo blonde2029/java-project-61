@@ -8,7 +8,7 @@ public class GCD {
         //сама игра
         final int maxRandomValue = 100;
         String gameRule = "Find the greatest common divisor of given numbers.";
-        String[][] questionsAndAnswers = new String[3][2];
+        String[][] questionsAndAnswers = new String[attempts][2];
         for (var i = 0; i < attempts; i++) {
             //подготовим вопрос
             int a = Utils.getRandomInt(maxRandomValue);

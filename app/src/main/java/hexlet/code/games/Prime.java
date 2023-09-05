@@ -7,7 +7,7 @@ public class Prime {
         //сама игра
         final int maxRandomValue = 3571;
         String gameRule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[][] questionsAndAnswers = new String[3][2];
+        String[][] questionsAndAnswers = new String[attempts][2];
         for (var i = 0; i < attempts; i++) {
             //подготовим вопрос
             int number = Utils.getRandomInt(1, maxRandomValue);
