@@ -1,42 +1,31 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
-import java.util.Random;
-import java.util.Scanner;
+import hexlet.code.Utils;
 
 public class Calc {
     public static void startGame(int attempts) {
-        //знакомство с пользователем
-        String name = Engine.greeting();
         //сама игра
         final int maxRandomValue = 100;
-        System.out.println("What is the result of the expression?");
+        String gameRule = "What is the result of the expression?";
+        String[][] questionsAndAnswers = new String[3][2];
         for (var i = 0; i < attempts; i++) {
-            //подберем случайные числа
-            Random random = new Random();
-            int a = random.nextInt(maxRandomValue);
-            int b = random.nextInt(maxRandomValue);
-            //подберем случайное выражение
+            //подготовим вопрос
+            int a = Utils.getRandomInt(maxRandomValue);
+            int b = Utils.getRandomInt(maxRandomValue);
             String expressionString = getExpression();
+            String question = " " + a + " " + expressionString + " " + b;
             //вычислим правильный ответ
             String correctAnswer = getCorrectAnswer(a, b, expressionString);
-            //выводим вопрос и считываем ответ
-            String question = "Question: " + a + " " + expressionString + " " + b;
-            Scanner scanner = new Scanner(System.in);
-            System.out.println(question);
-            System.out.print("Your answer:");
-            String answer = scanner.nextLine().trim();
-            //проверим ответ пользователя
-            if (!Engine.checkAnswer(answer, correctAnswer, name)) {
-                return;
-            }
+            //запишем в массив вопрос и правильный ответ
+            questionsAndAnswers[i][0] = question;
+            questionsAndAnswers[i][1] = correctAnswer;
         }
-        System.out.println("Congratulations, " + name + "!");
+        Engine.startGame(questionsAndAnswers, gameRule);
     }
     public static String getExpression() {
         final String[] variousExpressions = new String[] {"-", "+", "*"};
         final int maxRandom = 3;
-        Random random = new Random();
-        int expression = random.nextInt(maxRandom);
+        int expression = Utils.getRandomInt(maxRandom);
         return variousExpressions[expression];
     }
     public static String getCorrectAnswer(int a, int b, String expressionString) {

@@ -1,49 +1,50 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
-import java.util.Random;
-import java.util.Scanner;
+import hexlet.code.Utils;
 
 public class Progression {
     public static void startGame(int attempts) {
-        //знакомство с пользователем
-        String name = Engine.greeting();
         //сама игра
         final int minRandomValue = 5;
         final int maxRandomValue = 10;
-        System.out.println("What number is missing in the progression?");
-        Random random = new Random();
+        String gameRule = "What number is missing in the progression?";
+        String[][] questionsAndAnswers = new String[3][2];
         for (var i = 0; i < attempts; i++) {
-            //подготовим данные для задачи
-            int startNumber = random.nextInt(maxRandomValue);
-            int progressionNumber = random.nextInt(1, maxRandomValue);
-            int arrayLength = random.nextInt(minRandomValue, maxRandomValue);
-            int hiddenIndex = random.nextInt(arrayLength);
-            String array = getArray(arrayLength, startNumber, progressionNumber, hiddenIndex);
+            //подготовим вопрос
+            int startNumber = Utils.getRandomInt(maxRandomValue);
+            int progressionNumber = Utils.getRandomInt(1, maxRandomValue);
+            int arrayLength = Utils.getRandomInt(minRandomValue, maxRandomValue);
+            int hiddenIndex = Utils.getRandomInt(arrayLength);
+            //сгенерируем массив
+            int[] array = getArray(arrayLength, startNumber, progressionNumber);
+            //заменим случайную позицию на ".."
+            String arrayWithHiddenElem = getArrayWithHiddenElem(array, hiddenIndex);
             //вычислим правильный ответ
             String correctAnswer = getCorrectAnswer(arrayLength, startNumber, progressionNumber, hiddenIndex);
-            //выводим вопрос и считываем ответ
-            String question = "Question:" + array;
-            Scanner scanner = new Scanner(System.in);
-            System.out.println(question);
-            System.out.print("Your answer:");
-            String answer = scanner.nextLine().trim();
-            //проверим ответ пользователя
-            if (!Engine.checkAnswer(answer, correctAnswer, name)) {
-                return;
+            //запишем в массив вопрос и правильный ответ
+            questionsAndAnswers[i][0] = arrayWithHiddenElem;
+            questionsAndAnswers[i][1] = correctAnswer;
+        }
+        Engine.startGame(questionsAndAnswers, gameRule);
+    }
+
+    private static String getArrayWithHiddenElem(int[] array, int hiddenIndex) {
+        String result = "";
+        for (var i = 0; i < array.length; i++) {
+            if (i == hiddenIndex) {
+                result = result + " ..";
+            } else {
+                result = result + " " + array[i];
             }
         }
-        System.out.println("Congratulations, " + name + "!");
+        return result;
     }
-    public static String getArray(int arrayLength, int startNumber, int progressionNumber, int hiddenIndex) {
-        String array = "";
+
+    public static int[] getArray(int arrayLength, int startNumber, int progressionNumber) {
+        int[] array = new int[arrayLength];
         for (var n = 0; n < arrayLength; n++) {
-            if (n == hiddenIndex) {
-                startNumber = startNumber + progressionNumber;
-                array = array + " ..";
-            } else {
-                array = array + " " + startNumber;
-                startNumber = startNumber + progressionNumber;
-            }
+            array[n] = startNumber;
+            startNumber = startNumber + progressionNumber;
         }
         return array;
     }
@@ -52,7 +53,7 @@ public class Progression {
         for (var n = 0; n < arrayLength; n++) {
             if (n == hiddenIndex) {
                 correctAnswer = "" + startNumber; //это будет правильный ответ
-                startNumber = startNumber + progressionNumber;
+                return correctAnswer;
             }
             startNumber = startNumber + progressionNumber;
         }
