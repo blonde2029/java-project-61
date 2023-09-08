@@ -3,17 +3,17 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calc {
-    static final int maxRandomValue = 100;
-    static final String[] variousExpressions = new String[] {"-", "+", "*"};
-    static final int maxRandom = 3;
-    static final String gameRule = "What is the result of the expression?";
+    static final int MAX_RANDOM_VALUE = 100;
+    static final String[] VARIOUS_EXPRESSIONS = new String[] {"-", "+", "*"};
+    static final int MAX_RANDOM_EXPRESSIONS = 3;
+    static final String GAME_RULE = "What is the result of the expression?";
     public static void startGame(int attempts) {
         //сама игра
         String[][] questionsAndAnswers = new String[attempts][2];
         for (var i = 0; i < attempts; i++) {
             //подготовим вопрос
-            int a = Utils.getRandomInt(0, maxRandomValue);
-            int b = Utils.getRandomInt(0, maxRandomValue);
+            int a = Utils.getRandomInt(0, MAX_RANDOM_VALUE);
+            int b = Utils.getRandomInt(0, MAX_RANDOM_VALUE);
             String expressionString = getExpression();
             String question = " " + a + " " + expressionString + " " + b;
             //вычислим правильный ответ
@@ -22,11 +22,11 @@ public class Calc {
             questionsAndAnswers[i][0] = question;
             questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.startGame(questionsAndAnswers, gameRule);
+        Engine.startGame(questionsAndAnswers, GAME_RULE);
     }
     public static String getExpression() {
-        int expression = Utils.getRandomInt(0, maxRandom);
-        return variousExpressions[expression];
+        int expression = Utils.getRandomInt(0, MAX_RANDOM_EXPRESSIONS);
+        return VARIOUS_EXPRESSIONS[expression];
     }
     public static int getCorrectAnswer(int a, int b, String expressionString) {
         int correctAnswer;

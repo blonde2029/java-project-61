@@ -3,17 +3,17 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
-    static final int minRandomValue = 5;
-    static final int maxRandomValue = 10;
-    static final String gameRule = "What number is missing in the progression?";
+    static final int MIN_RANDOM_VALUE = 5;
+    static final int MAX_RANDOM_VALUE = 10;
+    static final String GAME_RULE = "What number is missing in the progression?";
     public static void startGame(int attempts) {
         //сама игра
         String[][] questionsAndAnswers = new String[attempts][2];
         for (var i = 0; i < attempts; i++) {
             //подготовим вопрос
-            int startNumber = Utils.getRandomInt(0, maxRandomValue);
-            int progressionNumber = Utils.getRandomInt(1, maxRandomValue);
-            int arrayLength = Utils.getRandomInt(minRandomValue, maxRandomValue);
+            int startNumber = Utils.getRandomInt(0, MAX_RANDOM_VALUE);
+            int progressionNumber = Utils.getRandomInt(1, MAX_RANDOM_VALUE);
+            int arrayLength = Utils.getRandomInt(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
             int hiddenIndex = Utils.getRandomInt(0, arrayLength);
             //сгенерируем массив
             int[] array = getArray(arrayLength, startNumber, progressionNumber);
@@ -26,7 +26,7 @@ public class Progression {
             questionsAndAnswers[i][0] = arrayWithHiddenElem;
             questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.startGame(questionsAndAnswers, gameRule);
+        Engine.startGame(questionsAndAnswers, GAME_RULE);
     }
 
     private static String getArrayWithHiddenElem(int[] array, int hiddenIndex) {
