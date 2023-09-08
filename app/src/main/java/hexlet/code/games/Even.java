@@ -13,7 +13,7 @@ public class Even {
             //подготовим вопрос
             int randomNumber = Utils.getRandomInt(0, MAX_RANDOM_VALUE);
             //подготовим правильный ответ
-            String correctAnswer = (Utils.isEven(randomNumber) ? "yes" : "no");
+            String correctAnswer = Utils.isEven(randomNumber) ? "yes" : "no";
             //запишем в массив вопрос и правильный ответ
             questionsAndAnswers[i][0] = " " + randomNumber;
             questionsAndAnswers[i][1] = correctAnswer;

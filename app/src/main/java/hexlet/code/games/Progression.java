@@ -22,7 +22,6 @@ public class Progression {
             String arrayWithHiddenElem = getArrayWithHiddenElem(array, hiddenIndex);
             //вычислим правильный ответ
             String correctAnswer = String.valueOf(array[hiddenIndex]);
-            //String correctAnswer = getCorrectAnswer(arrayLength, startNumber, progressionNumber, hiddenIndex);
             //запишем в массив вопрос и правильный ответ
             questionsAndAnswers[i][0] = arrayWithHiddenElem;
             questionsAndAnswers[i][1] = correctAnswer;
