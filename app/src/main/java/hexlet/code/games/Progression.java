@@ -3,24 +3,25 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
+    static final int minRandomValue = 5;
+    static final int maxRandomValue = 10;
+    static final String gameRule = "What number is missing in the progression?";
     public static void startGame(int attempts) {
         //сама игра
-        final int minRandomValue = 5;
-        final int maxRandomValue = 10;
-        String gameRule = "What number is missing in the progression?";
         String[][] questionsAndAnswers = new String[attempts][2];
         for (var i = 0; i < attempts; i++) {
             //подготовим вопрос
-            int startNumber = Utils.getRandomInt(maxRandomValue);
+            int startNumber = Utils.getRandomInt(0, maxRandomValue);
             int progressionNumber = Utils.getRandomInt(1, maxRandomValue);
             int arrayLength = Utils.getRandomInt(minRandomValue, maxRandomValue);
-            int hiddenIndex = Utils.getRandomInt(arrayLength);
+            int hiddenIndex = Utils.getRandomInt(0, arrayLength);
             //сгенерируем массив
             int[] array = getArray(arrayLength, startNumber, progressionNumber);
             //заменим случайную позицию на ".."
             String arrayWithHiddenElem = getArrayWithHiddenElem(array, hiddenIndex);
             //вычислим правильный ответ
-            String correctAnswer = getCorrectAnswer(arrayLength, startNumber, progressionNumber, hiddenIndex);
+            String correctAnswer = String.valueOf(array[hiddenIndex]);
+            //String correctAnswer = getCorrectAnswer(arrayLength, startNumber, progressionNumber, hiddenIndex);
             //запишем в массив вопрос и правильный ответ
             questionsAndAnswers[i][0] = arrayWithHiddenElem;
             questionsAndAnswers[i][1] = correctAnswer;
@@ -47,16 +48,5 @@ public class Progression {
             startNumber = startNumber + progressionNumber;
         }
         return array;
-    }
-    public static String getCorrectAnswer(int arrayLength, int startNumber, int progressionNumber, int hiddenIndex) {
-        String correctAnswer = "";
-        for (var n = 0; n < arrayLength; n++) {
-            if (n == hiddenIndex) {
-                correctAnswer = "" + startNumber; //это будет правильный ответ
-                return correctAnswer;
-            }
-            startNumber = startNumber + progressionNumber;
-        }
-        return correctAnswer;
     }
 }
