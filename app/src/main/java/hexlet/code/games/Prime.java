@@ -13,7 +13,7 @@ public class Prime {
             //подготовим вопрос
             int number = Utils.getRandomInt(1, MAX_RANDOM_VALUE);
             //вычислим правильный ответ
-            String correctAnswer = Utils.isSimple(number) ? "yes" : "no";
+            String correctAnswer = (Utils.isSimple(number) ? "yes" : "no");
             //запишем в массив вопрос и правильный ответ
             questionsAndAnswers[i][0] = " " + number;
             questionsAndAnswers[i][1] = correctAnswer;
