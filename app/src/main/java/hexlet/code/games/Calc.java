@@ -4,10 +4,10 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calc {
-    static final int MAX_RANDOM_VALUE = 100;
-    static final String[] VARIOUS_EXPRESSIONS = new String[] {"-", "+", "*"};
-    static final int MAX_RANDOM_EXPRESSIONS = 3;
-    static final String GAME_RULE = "What is the result of the expression?";
+    private static final int MAX_RANDOM_VALUE = 100;
+    private static final String[] VARIOUS_EXPRESSIONS = new String[] {"-", "+", "*"};
+    private static final int MAX_RANDOM_EXPRESSIONS = 3;
+    private static final String GAME_RULE = "What is the result of the expression?";
     public static void startGame(int attempts) {
         //сама игра
         String[][] questionsAndAnswers = new String[attempts][2];
@@ -29,14 +29,16 @@ public class Calc {
         int expression = Utils.getRandomInt(0, MAX_RANDOM_EXPRESSIONS);
         return VARIOUS_EXPRESSIONS[expression];
     }
-    public static int getCorrectAnswer(int a, int b, String expressionString) {
-        int correctAnswer;
+    public static Integer getCorrectAnswer(int a, int b, String expressionString) {
+        Integer correctAnswer;
         if (expressionString.equals("-")) {
             correctAnswer = a - b;
         } else if (expressionString.equals("+")) {
             correctAnswer = a + b;
-        } else {
+        } else if (expressionString.equals("*")) {
             correctAnswer = a * b;
+        } else {
+            correctAnswer = null;
         }
         return correctAnswer;
     }

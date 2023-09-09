@@ -4,9 +4,9 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
-    static final int MIN_RANDOM_VALUE = 5;
-    static final int MAX_RANDOM_VALUE = 10;
-    static final String GAME_RULE = "What number is missing in the progression?";
+    private static final int MIN_RANDOM_VALUE = 5;
+    private static final int MAX_RANDOM_VALUE = 10;
+    private static final String GAME_RULE = "What number is missing in the progression?";
     public static void startGame(int attempts) {
         //сама игра
         String[][] questionsAndAnswers = new String[attempts][2];
@@ -40,7 +40,6 @@ public class Progression {
         }
         return result;
     }
-
     public static int[] getArray(int arrayLength, int startNumber, int progressionNumber) {
         int[] array = new int[arrayLength];
         for (var n = 0; n < arrayLength; n++) {

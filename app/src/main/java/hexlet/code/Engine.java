@@ -12,7 +12,7 @@ public class Engine {
             Scanner scanner = new Scanner(System.in);
             String userAnswer = scanner.nextLine().trim();
             //проверим корректность
-            if (checkAnswer(userAnswer, questionsAndAnswer[1])) {
+            if (userAnswer.equals(questionsAndAnswer[1])) {
                 System.out.println("Correct!");
             } else {
                 System.out.println(userAnswer + " is wrong answer ;(. Correct answer was "
@@ -30,9 +30,4 @@ public class Engine {
         System.out.println("Hello, " + name + "!");
         return name;
     }
-    public static boolean checkAnswer(String answer, String correctAnswer) {
-        return answer.equals(correctAnswer);
-    }
-
-
 }
